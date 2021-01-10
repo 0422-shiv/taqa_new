@@ -1,0 +1,208 @@
+{% extends 'include/base.html' %}
+{% load static %}
+{% block body_content %}
+<!-- Header Section-->
+<section class="dashboard-header">
+
+<!--<div class="costest">
+<div class="container">
+<div class="add_category mb-3">
+                <h4 class="add_name">Employee</h4>
+
+            </div>
+
+<div class="searchox">
+		<i class="fas fa-search"></i>
+		<input type="text" class="form-control" placeholder="Search Directory">
+
+		</div>
+
+
+            </div>
+
+        </div>-->
+<div class="mt-1">
+    <div class="container">
+
+		<div class="create-box">
+		<h2 class="task">Manage Projects <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn text-uppercase btn-success btn-rounded">Add Project</a></h2>
+
+
+	<div class="task-table reviews">
+		<table class="table table-striped" id="example">
+                    <thead>
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+
+							<th>Start Date</th>
+                            <th>End Date</th>
+							<th>Attached Files</th>
+
+
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for data in get_project_data %}
+                        <tr>
+                            <td>
+                                <b>{{data.project_name}}</b>
+                            </td>
+
+
+                            <td><span class="color-green">{{data.start_date}}</span></td>
+                            <td><span class="color-green">{{data.end_date}}</span></td>
+
+							<td><div class="listbox"> <a href="" class="atach"><i class="fas fa-paperclip"></i> 5</a> </td>
+
+                            <td align="center">
+                                <a href="{% url 'task_management:ProjectDeleteView' data.id %}" class="atach red"><i class="fas fa-trash-alt"></i></a>
+
+								<a href="javascript:void(0)"
+								   class="atach color-green edit_project" data-toggle="modal" data-target="#exampleModal-edit" data-project_id="{{data.id}}">
+								<i class="fas fa-pencil-alt "></i></a>
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+		</div>
+
+		</div>
+
+    </div>
+	</div>
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+	  <h5>Add Project <button type="button" class="close close-rounded" data-dismiss="modal" aria-label="Close">
+        <i class="fas fa-times-circle"></i>
+        </button></h5>
+		<form method="post" action="" enctype="multipart/form-data">
+			{% csrf_token %}
+				<div class="form-project">
+				<div class="form-group">
+				<label>Project name</label>
+					{{form.project_name}}
+		<!--		<input type="text" class="form-control" />-->
+				</div>
+
+				<div class="form-group">
+				<label>Description</label>
+					{{form.description}}
+		<!--		<textarea id="summernote" ></textarea>-->
+				</div>
+
+				<div class="row">
+				<div class="col-md-6">
+				<div class="form-project">
+				<div class="form-group">
+				<label>Start Date</label>
+				<div id="datepicker" class="date date-icon" data-date-format="mm-dd-yyyy">
+		<!--            {{form.start_date}}-->
+			<input class="form-control" type="text" name="startdate"/>
+			<span class="input-group-addon"><i class="glyphicon fas fa-calendar-plus"></i></span>
+		</div>
+
+				</div>
+				</div>
+				</div>
+
+				<div class="col-md-6">
+				<div class="form-project">
+				<div class="form-group">
+				<label>End Date</label>
+				<div id="enddate" class="date date-icon" data-date-format="mm-dd-yyyy">
+		<!--            {{form.end_date}}-->
+			<input class="form-control" type="text" name="enddate" />
+			<span class="input-group-addon"><i class="glyphicon fas fa-calendar-plus"></i></span>
+			</div>
+				</div>
+				</div>
+				</div>
+
+
+				<div class="col-md-6">
+				<div class="form-project">
+				<div class="form-group">
+				<label>Estimated Hours</label>
+					{{form.estimate_hours}}
+		<!--	 <input class="form-control" type="text" placeholder="HH:MM" />-->
+				</div>
+				</div>
+				</div>
+
+				<div class="col-md-6">
+				<div class="form-project">
+				<div class="form-group">
+				<label>Attach Project File</label>
+			 <input class="form-control" type="file" name="project_file" multiple/>
+				</div>
+				</div>
+				</div>
+
+				<div class="col-md-12">
+				<button class="btn text-uppercase btn-success btn-rounded" type="submit">Save</button>
+				</div>
+
+
+				</div>
+			</form>
+	  </div>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div class="modal fade" id="exampleModal-edit" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+
+	  </div>
+
+    </div>
+  </div>
+</div>
+
+
+  {% endblock %}
+{% block script %}
+
+<script type="text/javascript">
+
+
+//---------Edit User start----------------
+$(document).on("click",".edit_project",function(){
+console.log('hello')
+var id = $(this).data("project_id");
+console.log(id)
+$.ajax({
+  method:"GET",
+  url :"/task_management/edit-project/"+id,
+  dataType:"html",
+
+  success:function(data)
+  {
+     $("#exampleModal-edit .modal-body").html(data);
+  }
+});
+});
+//---------Edit User end----------------
+</script>
+{% endblock %}

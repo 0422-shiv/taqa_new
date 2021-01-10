@@ -1,0 +1,465 @@
+{% extends 'include/base.html' %}
+{% load static %}
+{% block body_content %}
+<!-- Header Section-->
+<section class="dashboard-header">
+
+<div class="costest">
+    <div class="container">
+     <div class="add_category mb-3">
+                <h4 class="add_name">Get Started</h4>
+
+            </div>
+
+		<ul class="tabs-team nav" role="tablist">
+              <li>
+                <a href="#social-media" role="tab" data-toggle="tab">Social Media</a>
+              </li>
+              <li>
+                <a class="active" href="#creative" role="tab" data-toggle="tab">Creative</a>
+              </li>
+              <li>
+                <a href="#research" role="tab" data-toggle="tab">Research</a>
+              </li>
+              <li>
+                <a href="#management" role="tab" data-toggle="tab">Management</a>
+              </li>
+        </ul>
+
+
+            </div>
+
+        </div>
+<div class="mt-1">
+    <div class="container">
+
+		<div class="create-box">
+
+
+		<div class="tab-content">
+
+<!--            social media  content start-->
+                  <div role="tabpanel" class="tab-pane fade" id="social-media">
+                    <div class="creative-div">
+                        <form method="post" action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+                         <div class="row">
+                             <div class="col-md-3">
+                                 <div class="creative-upload-photo">
+                                     <div class="upload-icon">
+                                        <i class="fas fa-images"></i>
+                                        <p>Add Photo</p>
+                                     </div>
+                                    {{Gs_form.img}}
+<!--                                         <input type="file"/>-->
+
+                                 </div>
+
+                             </div>
+
+                             <div class="col-md-9">
+                                 <div class="row">
+                                     <div class="col-md-9">
+                                         <div class="form-group">
+
+                                             <div class="create-icondiv">
+                                              <input type="hidden" class="form-control" name="team" value="social_media" />
+                                                 {{Gs_form.title}}
+                            <!--                 <input type="text" class="form-control" placeholder="Title" />-->
+                                             </div>
+                                         </div>
+
+                                     </div>
+                                        <div class="col-md-3">
+                                            <button class="btn text-uppercase btn-success btn-rounded attach half-w">Attach file
+                                                    <input type="file" name="attachment" multiple/>
+                                            </button>
+                                        </div>
+                                 </div>
+
+                              <div class="form-group">
+                                 <div class="create-icondiv">
+                                     {{Gs_form.description}}
+                <!--                <textarea class="form-control height" placeholder="Description"></textarea>-->
+                                 </div>
+                             </div>
+                            <div class="form-group mb-0">
+                                <button type="submit" class="btn text-uppercase btn-success btn-rounded half-w">Post</button>
+                            </div>
+
+                        </div>
+
+                     </div>
+                        </form>
+                  </div>
+
+
+                  <div class="creative-div">
+             {% for data in get_started_data %}
+
+                {% if data.team == 'social_media' %}
+
+                 <div class="mb-3 row">
+                 <div class="col-md-3">
+                 <div class="cr-img">
+                <img src="{{data.img.url}}" alt="" />
+
+                 </div>
+                 </div>
+
+                 <div class="col-md-9">
+                <div class="cr-description">
+                <h3> {{data.title}}<small> {{data.created_dt}}</small></h3>
+                <p>{{data.description}}<a href="#">Read More</a></p>
+                <div class="pdf-button-box">
+
+                <button class="btn btn-attacth btn-light btn-rounded"><i class="fas fa-paperclip"></i> Attached file <input type="file" /></button>
+
+                <ul class="iconpdf-icon">
+                     {% for item in get_file %}
+
+                    {% if item.get_started_guide_id.team == 'social_media' %}
+
+                        {% if item.get_started_guide_id.title == data.title %}
+
+                    <li><a href="{{item.file.url}}"><i class="far fa-file-pdf"></i></a></li>
+                     {% endif %}
+                    {% endif %}
+                    {% endfor %}
+
+                </ul>
+
+                </div>
+                </div>
+
+                 </div>
+
+                 </div>
+                      {% endif %}
+                {% endfor %}
+                  </div>
+
+
+                  </div>
+
+
+<!--            social media  content end-->
+
+<!--            creative content start-->
+                  <div role="tabpanel" class="tab-pane fade show active" id="creative">
+                  <div class="creative-div">
+ <form method="post" action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+                         <div class="row">
+                             <div class="col-md-3">
+                                 <div class="creative-upload-photo">
+                                     <div class="upload-icon">
+                                        <i class="fas fa-images"></i>
+                                        <p>Add Photo</p>
+                                     </div>
+                                    {{Gs_form.img}}
+<!--                                         <input type="file"/>-->
+
+                                 </div>
+
+                             </div>
+
+                             <div class="col-md-9">
+                                 <div class="row">
+                                     <div class="col-md-9">
+                                         <div class="form-group">
+
+                                             <div class="create-icondiv">
+                                              <input type="hidden" class="form-control" name="team" value="creative" />
+                                                 {{Gs_form.title}}
+                            <!--                 <input type="text" class="form-control" placeholder="Title" />-->
+                                             </div>
+                                         </div>
+
+                                     </div>
+                                        <div class="col-md-3">
+                                            <button class="btn text-uppercase btn-success btn-rounded attach half-w">Attach file
+                                                    <input type="file" name="attachment" multiple/>
+                                            </button>
+                                        </div>
+                                 </div>
+
+                              <div class="form-group">
+                                 <div class="create-icondiv">
+                                     {{Gs_form.description}}
+                <!--                <textarea class="form-control height" placeholder="Description"></textarea>-->
+                                 </div>
+                             </div>
+                            <div class="form-group mb-0">
+                                <button type="submit" class="btn text-uppercase btn-success btn-rounded half-w">Post</button>
+                            </div>
+
+                        </div>
+
+                     </div>
+                        </form>
+                  </div>
+
+
+                  <div class="creative-div">
+                  {% for data in get_started_data %}
+                      {% if data.team == 'creative' %}
+
+                 <div class="mb-3 row">
+
+                 <div class="col-md-3">
+                 <div class="cr-img">
+                <img src="{{data.img.url}}" alt="" />
+
+                 </div>
+                 </div>
+
+                 <div class="col-md-9">
+                <div class="cr-description">
+                <h3> {{data.title}}<small> {{data.created_dt}}</small></h3>
+                <p>{{data.description}}<a href="#">Read More</a></p>
+                <div class="pdf-button-box">
+                <button class="btn btn-attacth btn-light btn-rounded"><i class="fas fa-paperclip"></i> Attached file <input type="file" /></button>
+
+                <ul class="iconpdf-icon">
+
+                     {% for item in get_file %}
+
+                    {% if item.get_started_guide_id.team == 'creative' %}
+
+                        {% if item.get_started_guide_id.title == data.title %}
+
+                    <li><a href="{{item.file.url}}"><i class="far fa-file-pdf"></i></a></li>
+                     {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+
+                </div>
+                </div>
+
+                 </div>
+
+                 </div>
+                {% endif %}
+                {% endfor %}
+                  </div>
+
+
+                  </div>
+
+<!--            creative content end-->
+<!--            research content start-->
+                  <div role="tabpanel" class="tab-pane fade" id="research">
+                    <div class="creative-div">
+     <form method="post" action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+                         <div class="row">
+                             <div class="col-md-3">
+                                 <div class="creative-upload-photo">
+                                     <div class="upload-icon">
+                                        <i class="fas fa-images"></i>
+                                        <p>Add Photo</p>
+                                     </div>
+                                    {{Gs_form.img}}
+<!--                                         <input type="file"/>-->
+
+                                 </div>
+
+                             </div>
+
+                             <div class="col-md-9">
+                                 <div class="row">
+                                     <div class="col-md-9">
+                                         <div class="form-group">
+
+                                             <div class="create-icondiv">
+                                              <input type="hidden" class="form-control" name="team" value="Research" />
+                                                 {{Gs_form.title}}
+                            <!--                 <input type="text" class="form-control" placeholder="Title" />-->
+                                             </div>
+                                         </div>
+
+                                     </div>
+                                        <div class="col-md-3">
+                                            <button class="btn text-uppercase btn-success btn-rounded attach half-w">Attach file
+                                                    <input type="file" name="attachment" multiple/>
+                                            </button>
+                                        </div>
+                                 </div>
+
+                              <div class="form-group">
+                                 <div class="create-icondiv">
+                                     {{Gs_form.description}}
+                <!--                <textarea class="form-control height" placeholder="Description"></textarea>-->
+                                 </div>
+                             </div>
+                            <div class="form-group mb-0">
+                                <button type="submit" class="btn text-uppercase btn-success btn-rounded half-w">Post</button>
+                            </div>
+
+                        </div>
+
+                     </div>
+                        </form>
+                  </div>
+
+
+                  <div class="creative-div">
+           {% for data in get_started_data %}
+                {% if data.team == 'Research' %}
+                 <div class="mb-3 row">
+                 <div class="col-md-3">
+                 <div class="cr-img">
+                <img src="{{data.img.url}}" alt="" />
+
+                 </div>
+                 </div>
+
+                 <div class="col-md-9">
+                <div class="cr-description">
+                <h3> {{data.title}}<small> {{data.created_dt}}</small></h3>
+                <p>{{data.description}}<a href="#">Read More</a></p>
+                <div class="pdf-button-box">
+                <button class="btn btn-attacth btn-light btn-rounded"><i class="fas fa-paperclip"></i> Attached file <input type="file" /></button>
+
+                <ul class="iconpdf-icon">
+
+                     {% for item in get_file %}
+
+                    {% if item.get_started_guide_id.team == 'Research' %}
+
+                        {% if item.get_started_guide_id.title == data.title %}
+
+                    <li><a href="{{item.file.url}}"><i class="far fa-file-pdf"></i></a></li>
+                     {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+
+                </div>
+                </div>
+
+                 </div>
+
+                 </div>
+                      {% endif %}
+                {% endfor %}
+
+                 </div>
+                  </div>
+
+
+
+
+<!--            research content end-->
+
+<!--            management content start-->
+                  <div role="tabpanel" class="tab-pane fade" id="management">
+                    <div class="creative-div">
+    <form method="post" action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+                         <div class=" row">
+                             <div class="col-md-3">
+                                 <div class="creative-upload-photo">
+                                     <div class="upload-icon">
+                                        <i class="fas fa-images"></i>
+                                        <p>Add Photo</p>
+                                     </div>
+                                    {{Gs_form.img}}
+<!--                                         <input type="file"/>-->
+
+                                 </div>
+
+                             </div>
+
+                             <div class="col-md-9">
+                                 <div class="row">
+                                     <div class="col-md-9">
+                                         <div class="form-group">
+
+                                             <div class="create-icondiv">
+                                              <input type="hidden" class="form-control" name="team" value="management" />
+                                                 {{Gs_form.title}}
+                            <!--                 <input type="text" class="form-control" placeholder="Title" />-->
+                                             </div>
+                                         </div>
+
+                                     </div>
+                                        <div class="col-md-3">
+                                            <button class="btn text-uppercase btn-success btn-rounded attach half-w">Attach file
+                                                    <input type="file" name="attachment" multiple/>
+                                            </button>
+                                        </div>
+                                 </div>
+
+                              <div class="form-group">
+                                 <div class="create-icondiv">
+                                     {{Gs_form.description}}
+                <!--                <textarea class="form-control height" placeholder="Description"></textarea>-->
+                                 </div>
+                             </div>
+                            <div class="form-group mb-0">
+                                <button type="submit" class="btn text-uppercase btn-success btn-rounded half-w">Post</button>
+                            </div>
+
+                        </div>
+
+                     </div>
+                        </form>
+                  </div>
+
+
+
+                  <div class="creative-div">
+                {% for data in get_started_data %}
+                {% if data.team == 'management' %}
+                 <div class="mb-3 row">
+                 <div class="col-md-3">
+                 <div class="cr-img">
+                <img src="{{data.img.url}}" alt="" />
+
+                 </div>
+                 </div>
+
+                 <div class="col-md-9">
+                <div class="cr-description">
+                <h3> {{data.title}}<small> {{data.created_dt}}</small></h3>
+                <p>{{data.description}}<a href="#">Read More</a></p>
+                <div class="pdf-button-box">
+                <button class="btn btn-attacth btn-light btn-rounded"><i class="fas fa-paperclip"></i> Attached file <input type="file" /></button>
+
+                <ul class="iconpdf-icon">
+
+                     {% for item in get_file %}
+
+                    {% if item.get_started_guide_id.team == 'management' %}
+
+                        {% if item.get_started_guide_id.title == data.title %}
+
+                    <li><a href="{{item.file.url}}"><i class="far fa-file-pdf"></i></a></li>
+                     {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+
+                </div>
+                </div>
+
+                 </div>
+
+                 </div>
+                      {% endif %}
+                {% endfor %}
+                  </div>
+
+                  </div>
+<!--            management content end-->
+                </div>
+
+		</div>
+
+    </div>
+	</div>
+</section>
+{% endblock %}

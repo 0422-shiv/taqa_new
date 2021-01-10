@@ -1,0 +1,107 @@
+{% extends 'include/base.html' %}
+
+{% block body_content %}
+
+<!-- Header Section-->
+
+<section class="dashboard-header"> 
+  
+  <div class="costest">
+<div class="container">
+<div class="add_category ">
+                <h4 class="add_name">Sentiment Analysis</h4>
+				
+            </div>
+        
+
+
+		
+            </div>
+            
+        </div>
+  <div class="mt-1">
+    <div class="container">
+      <div class="create-box">
+        <div class="row">
+		<div class="col-md-12">
+	<form method="POST" action="{% url 'twitter_sentimental_index:analyzing' %}">
+        {% csrf_token %}
+		<div class="row">
+		<div class="col-md-12">
+		<div class="form-group">
+        
+		<label>Search Queries</label>
+		<input type="text" name="query" class="form-control" required/>
+		</div>
+		</div>
+		
+		
+		<div class="col-md-6">
+		<div class="form-group">
+		<label>From Date</label>
+		<div  class="date date-icon" >
+    <input class="form-control" id="datepicker" data-date-format="yyyy-mm-dd"  type="text"  name="From_Date" />
+    <span class="input-group-addon"><i class="glyphicon fas fa-calendar-plus"></i></span>
+</div>
+		</div>
+		</div>
+		
+		
+		<div class="col-md-6">
+		<div class="form-group">
+		<label>To Date</label>
+		<div  class="date date-icon" >
+    <input  class="form-control" id="enddate" data-date-format="yyyy-mm-dd"   type="text" name="To_Date" />
+    <span class="input-group-addon"><i class="glyphicon fas fa-calendar-plus"></i></span>
+</div>
+		</div>
+		</div>
+		<div class="col-md-12">
+		<label>Language</label>
+		</div>
+		
+		<div class="col-md-3">
+		<div class="form-group">
+		
+		<div class="language">
+		<label>
+    <input type="radio" name="RadioGroup1" value="en" id="RadioGroup1_0" checked="checked">&nbsp;&nbsp;
+    English</label>
+		</div>
+		</div>
+		</div>
+		
+		<div class="col-md-3">
+		<div class="form-group">
+		
+		<div class="language">
+		<label>
+    <input type="radio" name="RadioGroup1" value="ar" id="RadioGroup1_1">&nbsp;&nbsp;
+    Arabic</label>
+		</div>
+		</div>
+		</div>
+		
+		<div class="col-md-12">
+		<button class="btn btn-success text-uppercase btn-lg" type="submit">Start</button>
+		</div>
+		
+		
+		
+        </div>
+        </form>
+		</div>
+		
+		
+		
+		
+		
+		
+		</div>
+		</div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+

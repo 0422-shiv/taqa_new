@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Solution Integration admin </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Solution Integration" name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- App favicon -->
+        <!-- <link rel="shortcut icon" href="assets/images/fevicon.png"> -->
+
+        <!-- C3 Chart css -->
+        <link href='{% static "assets/libs/c3.min.css" %}' rel="stylesheet" type="text/css" />
+
+        <!-- App css -->
+        <link href='{% static "assets/css/bootstrap.min.css" %}' rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+        <link href='{% static "assets/css/icons.min.css" %}' rel="stylesheet" type="text/css" />
+        <link href='{% static "assets/css/app.min.css" %}' rel="stylesheet" type="text/css"  id="app-stylesheet" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css" href='{% static "assets/css/style.css" %}'>
+		<link rel="stylesheet" type="text/css" href='{% static "assets/css/taqa.css" %}'>
+         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+		  <link rel='stylesheet' href='{% static "assets/css/fullcalendar.min.css" %}'>
+		  <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    
+		  
+    </head>
+
+    <body>
+<div id="wrapper">
+
+            
+            <!-- Topbar Start -->
+            <div class="navbar-custom">
+                <ul class="list-unstyled topnav-menu float-right mb-0">
+<li class="dropdown notification-list"><a href="#" class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" ><i class="fa fa-futbol" aria-hidden="true"></i></a></li>
+                    <li class="dropdown notification-list"><a href="#" class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" ><i class="fa fa-comments"></i></a></li>
+
+                    <li class="dropdown notification-list">
+					<a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+						<i class="fa fa-bell" aria-hidden="true"></i>
+                            <span class="count-noti">10</span>
+                        </a>
+                       
+                        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+
+                            <div class="dropdown-header noti-title">
+                                <h5 class="text-overflow m-0"><span class="float-right">
+                                    <span class="badge badge-danger float-right">5</span>
+                                    </span>Notification</h5>
+                            </div>
+
+                            <div class="slimscroll noti-scroll">
+
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-success"><i class="mdi mdi-comment-account-outline"></i></div>
+                                    <p class="notify-details">Robert S. Taylor commented on Admin<small class="text-muted">1 min ago</small></p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-primary">
+                                        <i class="mdi mdi-settings-outline"></i>
+                                    </div>
+                                    <p class="notify-details">New settings
+                                        <small class="text-muted">There are new settings available</small>
+                                    </p>
+                                </a>
+                    
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-warning">
+                                        <i class="mdi mdi-bell-outline"></i>
+                                    </div>
+                                    <p class="notify-details">Updates
+                                        <small class="text-muted">There are 2 new updates available</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon">
+                                        <img src='{% static "assets/images/users/avatar-4.jpg" %}' class="img-fluid rounded-circle" alt="" /> </div>
+                                    <p class="notify-details">Karen Robinson</p>
+                                    <p class="text-muted mb-0 user-msg">
+                                        <small>Wow ! this admin looks good and awesome design</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-danger">
+                                        <i class="mdi mdi-account-plus"></i>
+                                    </div>
+                                    <p class="notify-details">New user
+                                        <small class="text-muted">You have 10 unread messages</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-info">
+                                        <i class="mdi mdi-comment-account-outline"></i>
+                                    </div>
+                                    <p class="notify-details">Caleb Flakelar commented on Admin
+                                        <small class="text-muted">4 days ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-secondary">
+                                        <i class="mdi mdi-heart"></i>
+                                    </div>
+                                    <p class="notify-details">Carlos Crouch liked
+                                        <b>Admin</b>
+                                        <small class="text-muted">13 days ago</small>
+                                    </p>
+                                </a>
+                            </div>
+
+                            <!-- All-->
+                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
+                                View all
+                                <i class="fi-arrow-right"></i>
+                            </a>
+
+                        </div>
+                    </li>
+					<li><span class="seprect"></span></li>
+
+                    <li class="dropdown notification-list">
+                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+						<span class="pro-user-name ml-1">
+                                Admin  <i class="mdi mdi-chevron-down"></i> 
+                            </span>
+                            <img src='{% static "assets/images/users/avatar-1.jpg" %}' alt="user-image" class="rounded-circle">
+                            
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+						<a href="#" class="dropdown-item notify-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Change Password</span>
+                            </a>
+                            <a href="{% url 'logout' %}" class="dropdown-item notify-item">
+                                <i class="fe-log-out"></i>
+                                <span>Logout</span>
+                            </a>
+							
+							 
+
+                        </div>
+                    </li>
+
+                    
+
+
+                </ul>
+
+                <!-- LOGO -->
+                <div class="logo-box">
+                    <a href="" class="logo text-center">
+                        <span class="logo-lg"><img src='{% static "assets/images/logo.png" %}' alt="">
+                        </span>
+                        <span class="logo-sm">
+                            <!-- <span class="logo-sm-text-dark">U</span> -->
+                            <img src='{% static "assets/images/logo.png" %}' alt="" height="28">
+                        </span>
+                    </a>
+                </div>
+
+                <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+                    <!--<li>
+                        <button class="button-menu-mobile waves-effect waves-light">
+                            <i class="fe-menu"></i>
+                        </button>
+                    </li>-->
+					<li>25-09-2020 14:20 Welcome</li>
+
+                  
+                </ul>
+            </div>
+            <!-- end Topbar -->
+
+            
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left-side-menu">
+
+                <div class="slimscroll-menu">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu" class="shadow1">
+
+                        <ul class="metismenu" id="side-menu">
+
+                            
+
+                            <li>
+                                <a href="#">
+                                    <i class="fe-airplay"></i>
+                                   
+                                    <span> Dashboard </span>
+                                </a>
+                                
+                            </li>
+							 <li>
+                                <a href="#">
+                                   <i class="fas fa-th"></i>
+                                   
+                                    <span> Stream </span>
+                                </a>
+                                
+                            </li>
+                              <li>
+                                <a href="javascript: void(0);">
+                                   <i class="fas fa-chart-bar"></i>
+                                    <span>Analytics</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level nav" aria-expanded="false">
+                                    
+                                    
+                <li><a href="javascript: void(0);"><i class="far fa-dot-circle"></i> Social media analytics <span class="menu-arrow"></span></a>
+				<ul class="nav-third-level">
+				<li><a href="#"><i class="fab fa-twitter"></i> Twitter analytics</a></li>
+				<li><a href="#"><i class="fab fa-facebook-f"></i> Facebook analytics</a></li>
+				<li><a href="#"><i class="fab fa-youtube"></i> Youtube analytics</a></li>
+				<li><a href="#"><i class="fab fa-instagram"></i> Instagram analytics</a></li>
+				<li><a href="#"><i class="far fa-play-circle"></i> Tiktok analytics</a></li>
+				<li><a href="#"><i class="fab fa-snapchat-ghost"></i> Snapchat analytics</a></li>
+				</ul>
+				
+				</li>
+               
+				 
+				
+				<li><a href="#"><i class="far fa-dot-circle"></i> Website google analytics</a></li>
+				<li><a href="{% url 'twitter_sentimental_index:sentimental_index'%}"><i class="far fa-dot-circle"></i> Sentiment Analysis</a></li>
+				<li><a href="#"><i class="far fa-dot-circle"></i> Newspaper analytics</a></li>
+                
+                                       
+                                </ul>
+                            </li>
+                          
+                             
+                            <li><a href="javascript: void(0);"><i class="fas fa-mobile-alt"></i>Cost Estimation<span class="menu-arrow"></span></a>
+							<ul class="nav-second-level nav">
+							<li><a href="#"><i class="far fa-dot-circle"></i> Cost Calculator</a></li>
+							<li><a href="#"><i class="far fa-dot-circle"></i> Cost Estimation Setting</a></li>
+							</ul>
+							
+							</li>
+                            <li><a href="#"><i class="fas fa-search"></i><span>Search Engine</span></a></li>
+                            <li><a href="#"><i class="fas fa-flag"></i><span>Reports</span></a></li>
+                            <!--<li><a href="#"><i class="fas fa-tasks"></i><span>Management Tools</span></a></li>-->
+							
+							 <li><a href="javascript: void(0);"><i class="fas fa-users"></i>Teams<span class="menu-arrow"></span></a>
+							<ul class="nav-second-level nav">
+							<li><a href="{% url 'teams:TeamsView'%}"><i class="far fa-dot-circle"></i> Get Started</a></li>
+							<li><a href="#"><i class="far fa-dot-circle"></i> Employee</a></li>
+							</ul>
+							
+							</li>
+							
+							
+							<li><a href="javascript: void(0);"><i class="fas fa-file-alt"></i>Task Management<span class="menu-arrow"></span></a>
+							<ul class="nav-second-level nav">
+							<li><a href="{% url 'task_management:ProjectManageView'%}"><i class="far fa-dot-circle"></i> Manage Projects</a></li>
+							<li><a href="{% url 'task_management:TaskManageView'%}"><i class="far fa-dot-circle"></i> Manage Task</a></li>
+							<li><a href="#"><i class="far fa-dot-circle"></i> Manage Calendar</a></li>
+							</ul>
+							
+							</li>
+							
+							
+							<li><a href="javascript: void(0);"><i class="fas fa-cog"></i>Settings<span class="menu-arrow"></span></a>
+							<ul class="nav-second-level nav">
+							<li><a href="{% url 'account:CreateUserView'%}"><i class="far fa-dot-circle"></i> Manage Accounts</a></li>
+							
+							<li><a href="#"><i class="far fa-dot-circle"></i> Roles & Permissions</a></li>
+							<li><a href="#"><i class="fas fa-lock"></i>Change Password</a></li>
+							
+							</ul>
+							
+							</li>
+							
+                            
+                            
+                           
+                            
+                            
+                           
+                 
+
+                            
+                            
+                
+                        </ul>
+
+                    </div>
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== --> <div class="content-page">
+                <div class="content">
+                    
+                    <!-- Start Content-->
+                   <!--  <div class="container-fluid"> -->
+                        
+                        <!-- start page title -->
+                            
+           
+                        {% block body_content %}
+                        {% endblock %}
+
+                        <footer class="footer">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- end Footer -->
+                        
+                        </div>
+                        
+                        <!-- ============================================================== -->
+                        <!-- End Page content -->
+                        <!-- ============================================================== -->
+                        
+                        <!--  </div> -->
+                        <!-- END wrapper -->
+                        
+                        
+                        
+                        
+                        <!-- Vendor js -->
+                        <script src='{% static "assets/js/vendor.min.js" %}'></script>
+                        
+                        <!--C3 Chart-->
+                        <script src='{% static "assets/libs/d3.min.js" %}'></script>
+                        <script src='{% static "assets/libs/c3.min.js" %}'></script>
+                        
+                        <script src='{% static "assets/libs/echarts.min.js" %}'></script>
+                        
+                        <script src='{% static "assets/libs/dashboard.init.js" %}'></script>
+                        
+                        <!-- App js -->
+                        <script src='{% static "assets/js/app.min.js" %}'></script>
+                        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+                        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+                        
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+                        <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
+                        <script src='https://cdn.jsdelivr.net/npm/apexcharts'></script>
+                        <script src='https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js'></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+                        <script src='{% static "assets/js/pie-chat.js" %}'></script>
+                        <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment-with-locales.min.js'></script>
+                        
+                        <script src='{% static "assets/js/fullcalendar.js" %}'></script>
+                        <script src='{% static "assets/js/full-calender.js" %}'></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
+                        
+                        <!--------------------------Chat--------------------->
+                        <!--------------------------------------------------->
+                        
+                        <script>
+                        
+                        
+                        $('textarea#summernote').summernote({
+                        placeholder: 'Hello bootstrap 4',
+                        tabsize: 2,
+                        height: 100,
+                        toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'italic', 'underline', 'clear']],
+                        // ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+                        //['fontname', ['fontname']],
+                        // ['fontsize', ['fontsize']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['height', ['height']],
+                        ['table', ['table']],
+                        ['insert', ['link', 'picture', 'hr']],
+                        //['view', ['fullscreen', 'codeview']],
+                        ['help', ['help']]
+                        ],
+                        });
+                        
+                        
+                        
+                        $(document).ready(function() {
+                        $('#multiple-checkboxes').multiselect({
+                        includeSelectAllOption: true,
+                        selectAllText: ' Select Language',
+                        nonSelectedText: 'Select Language',
+                        });
+                        
+                        
+                        $('#multiple-checkboxes1').multiselect({
+                        includeSelectAllOption: true,
+                        selectAllText: ' Select Location',
+                        nonSelectedText: 'Select Location',
+                        });
+                        
+                        
+                        
+                        });
+                        $('.aa').click(function(e){
+                        $('#myDiv').toggleClass('fullscreen'); 
+                        });
+                        
+                        
+                        $('.filters ul li').click(function(){
+                        $('.filters ul li').removeClass('active');
+                        $(this).addClass('active');
+                        
+                        var data = $(this).attr('data-filter');
+                        $grid.isotope({
+                        filter: data
+                        })
+                        });
+                        
+                        var $grid = $(".grid").isotope({
+                        itemSelector: ".all",
+                        percentPosition: true,
+                        masonry: {
+                        columnWidth: ".all"
+                        }
+                        })
+                        
+                        
+                        $(document).on('click','.a',function(){
+                        $('.append-elements').append('<div class="row align-items-center b"><div class="col-md-5"><div class="form-group"><label>Budget</label><div class="dollorbox"><i class="fas fa-dollar-sign"></i><input type="text" placeholder="30" class="form-control" /></div></div></div><div class="col-md-1 text-center refbtn"><div class="form-group"><span class="btn btn-success btn-block btn-lg"><i class="fas fa-sync"></i></span></div></div><div class="col-md-5"><div class="form-group"><label>Impression</label><div class="imp-rate form-control"><ul><li>1</li><li>1</li><li>1</li><li>0</li><li>0</li><li>0</li><li>1</li><li>1</li></ul><span>K</span></div></div></div><div class="col-md-1 text-center refbtn1"><button class="btn btn-danger btn-block btn-lg"><i class="fas fa-trash-alt"></i></button></div></div>');
+                        });
+                        $(document).on('click','.b',function(){
+                        $(this).remove();
+                        });
+                        
+                        
+                        $(function () {
+                        $('[data-toggle="tooltip"]').tooltip()
+                        })
+                        
+                        
+                        $(function () {
+                        $("#datepicker, #enddate").datepicker({ 
+                        autoclose: true, 
+                        todayHighlight: true,
+                        // startDate: "-7d",
+                        // endDate: "2d"
+
+                        }).datepicker('update', new Date());
+                        });
+                        
+                        $(document).ready(function() {
+                        $('#multiple-checkboxes12').multiselect({
+                        includeSelectAllOption: true,
+                        selectAllText: ' Select User',
+                        nonSelectedText: 'Select User',
+                        });
+                        
+                        $('#multiple-checkboxes123').multiselect({
+                        includeSelectAllOption: true,
+                        selectAllText: ' Select User',
+                        nonSelectedText: 'Select User',
+                        });
+                        
+                        });
+                        
+                        
+                        </script>
+                        <script>
+                        $(document).ready(function() {
+                        $('#example').DataTable();
+                        } );
+                        </script>
+                        <script>
+                        
+                        // Iterate over each select element
+                        $('select').each(function () {
+                        
+                        // Cache the number of options
+                        var $this = $(this),
+                        numberOfOptions = $(this).children('option').length;
+                        
+                        // Hides the select element
+                        $this.addClass('s-hidden');
+                        
+                        // Wrap the select element in a div
+                        $this.wrap('<div class="select form-control"></div>');
+                        
+                        // Insert a styled div to sit over the top of the hidden select element
+                        $this.after('<div class="styledSelect"></div>');
+                        
+                        // Cache the styled div
+                        var $styledSelect = $this.next('div.styledSelect');
+                        
+                        // Show the first select option in the styled div
+                        $styledSelect.text($this.children('option').eq(0).text());
+                        
+                        // Insert an unordered list after the styled div and also cache the list
+                        var $list = $('<ul />', {
+                        'class': 'options'
+                        }).insertAfter($styledSelect);
+                        
+                        // Insert a list item into the unordered list for each select option
+                        for (var i = 0; i < numberOfOptions; i++) {
+                        $('<li />', {
+                        text: $this.children('option').eq(i).text(),
+                        rel: $this.children('option').eq(i).val()
+                        }).appendTo($list);
+                        }
+                        
+                        // Cache the list items
+                        var $listItems = $list.children('li');
+                        
+                        // Show the unordered list when the styled div is clicked (also hides it if the div is clicked again)
+                        $styledSelect.click(function (e) {
+                        e.stopPropagation();
+                        $('div.styledSelect.active').each(function () {
+                        $(this).removeClass('active').next('ul.options').hide();
+                        });
+                        $(this).toggleClass('active').next('ul.options').toggle();
+                        });
+                        
+                        // Hides the unordered list when a list item is clicked and updates the styled div to show the selected list item
+                        // Updates the select element to have the value of the equivalent option
+                        $listItems.click(function (e) {
+                        e.stopPropagation();
+                        $styledSelect.text($(this).text()).removeClass('active');
+                        $this.val($(this).attr('rel'));
+                        $list.hide();
+                        /* alert($this.val()); Uncomment this for demonstration! */
+                        });
+                        
+                        // Hides the unordered list when clicking outside of it
+                        $(document).click(function () {
+                        $styledSelect.removeClass('active');
+                        $list.hide();
+                        });
+                        
+                        });
+                        </script>
+                        
+          {% block script %}
+            {% endblock %}
+                        
+                        </body>
+                        </html>

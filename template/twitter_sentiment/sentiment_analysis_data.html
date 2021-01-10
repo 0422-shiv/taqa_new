@@ -1,0 +1,166 @@
+{% extends 'include/base.html' %}
+
+{% block body_content %}
+<!-- Header Section-->
+
+<section class="dashboard-header"> 
+  
+  <div class="costest">
+<div class="container">
+<div class="add_category ">
+                <h4 class="add_name">Sentiment Analysis Data <a href="/"><i class="fas fa-arrow-circle-left"></i></a></h4>
+				
+            </div>
+        
+
+		
+		
+		<div class="row mt-3">
+		
+		
+	
+		<div class="col-md-4">
+		<div class="chart-box">
+		
+		<div class="chat-like">
+		
+			<div id="overallscore"></div>
+		</div>
+		</div>
+		</div>
+		
+		<div class="col-md-4">
+		<div class="chart-box">
+		
+		<div class="chat-like">
+		
+			<div id="overallscore1"></div>
+		</div>
+		</div>
+		</div>
+		
+		<div class="col-md-4">
+            <div class="chart-box">
+            
+            <div class="chat-like">
+            
+                <div id="overallscore2"></div>
+            </div>
+            </div>
+            </div>
+
+    </div>
+    
+    <div class="row mt-3">
+
+<!--    <div class="col-md-4">-->
+<!--      <div class="impression">-->
+<!--      <h4><span><i class="fa fa-user-plus"></i></span> Likes</h4>-->
+<!--      <div class="seventeen"><span>{{all_favorite_count}}</span> -->
+<!--      <p>fans</p>-->
+<!--      </div>-->
+<!--     -->
+<!--      -->
+<!--      </div>-->
+<!--    </div>-->
+
+    
+
+    <div class="col-md-4 offset-md-2">
+      <div class="impression">
+      <h4><span><i class="fa fa-retweet"></i></span> Retweets</h4>
+      <div class="seventeen"><span>{{all_retweet_count}}</span> 
+      <p>Retweets</p>
+      </div>
+      
+      
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="impression">
+      <h4><span><i class="fa fa-check"></i></span>Verified</h4>
+      <div class="chat-like">
+      <!--<div class="likebox">
+      <ul>
+      <li><i class="fa fa-heart"></i> 310,125</li>
+      <li><i class="fa fa-share"></i> 310,125</li>
+      <li><i class="fa fa-sign"></i> 310,125</li>
+      </ul>
+      </div>-->
+      <div class="piechat">
+      <div id="verify_twitter"></div>
+      </div>
+      </div>
+      </div>
+      </div>
+  </div>
+
+  
+		
+            </div>
+            
+        </div>
+        <input type="hidden" id="neutral" value="{{nutweets}}">
+        <input type="hidden" id="positive" value="{{ptweets2}}">
+        <input type="hidden" id="negative" value="{{ntweets2}}">
+  <div class="mt-1">
+    <div class="container">
+      <div class="create-box">
+        <div class="row">
+		<div class="col-md-12">
+		<table id="example" style="width: 100%;" class="table table-striped">
+                    <thead>
+                        <tr>
+                            
+                            
+                            
+                            <th style="width: 12%;" >Time</th>
+                         
+                            <th>Name</th>
+                            <th>Followers</th>
+                            <th>Location</th>
+                            <th>Favorited</th>
+                            <th>Retweeted</th>
+                            <th>Tweets</th>
+                            <th>Sentiment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in sentiment_data %}
+                        <tr>
+                            
+                           
+                            <td>
+                              {{data.created_at}}
+                            </td>
+                            
+                            <td>
+                               {{data.user_name}}
+								
+                            </td>
+                            <td>{{data.followers}}</td>
+                            <td>{{data.user_location}}</td>
+                            <td>{{data.favorite_count}}</td>
+                            <td>{{data.retweet_count}}</td>
+                            <td>{{data.text}}</td>
+                            <td>{{data.sentiment}}</td>
+                        </tr>
+                        {% endfor %}
+
+                        
+                    </tbody>
+                </table>
+		
+		</div>
+		
+		
+		
+		
+		
+		</div>
+		</div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

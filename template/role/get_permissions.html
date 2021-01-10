@@ -1,0 +1,37 @@
+{% if cate_name %}
+<div class="col-md-12">
+                        <div class="form-group">
+                            <div class="stream-checkbox">
+                                <lable>
+                            <input type="checkbox" name="CheckboxGroup2" class="check_box" data-class="{{cate_name|cut:' ' }}">
+                                {{cate_name}}</label>
+
+                            </div>
+                        </div>
+</div>
+{% endif %}
+
+{% if get_data %}
+{% for item in get_data %}
+<div class="col-md-3">
+
+            <div class="stream-checkbox">
+              <label>
+            {% if cate_name %}
+                <input type="checkbox" name="checkboxdata" class="{{cate_name|cut:' ' }}" value="{{item.id}}" disabled="disabled"/>
+                {{item}}</label>
+
+              {% else %}
+                <input type="checkbox" name="checkboxdata" class="{{cate_name|cut:' ' }}" value="{{item.id}}" />
+                {{item}}
+              {% endif %}
+                </label>
+            </div>
+
+</div>
+
+{% endfor %}
+{% endif %}
+
+
+

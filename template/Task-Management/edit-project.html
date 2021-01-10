@@ -1,0 +1,116 @@
+<h5>Edit Project <button type="button" class="close close-rounded" data-dismiss="modal" aria-label="Close">
+        <i class="fas fa-times-circle"></i>
+        </button></h5>
+
+		<form method="post" action="/task_management/edit-project/{{project_instance.id}}" enctype="multipart/form-data">
+			{% csrf_token %}
+				<div class="form-project">
+				<div class="form-group">
+				<label>Project name</label>
+					{{form.project_name}}
+<!--				<input type="text" class="form-control" value="{{project_instance.project_name}}"/>-->
+				</div>
+
+				<div class="form-group">
+				<label>Description</label>
+					{{form.description}}
+<!--				<textarea id="summernote" ></textarea>-->
+				</div>
+
+				<div class="row">
+				<div class="col-md-6">
+				<div class="form-project">
+				<div class="form-group">
+				<label>Start Date</label>
+				<div id="datepicker" class="date date-icon" data-date-format="mm-dd-yyyy">
+<!--		            {{form.start_date}}-->
+			<input class="form-control" type="text" name="startdate" value="{{project_instance.start_date}}"/>
+			<span class="input-group-addon"><i class="glyphicon fas fa-calendar-plus"></i></span>
+		</div>
+
+				</div>
+				</div>
+				</div>
+
+				<div class="col-md-6">
+				<div class="form-project">
+				<div class="form-group">
+				<label>End Date</label>
+				<div id="enddate" class="date date-icon" data-date-format="mm-dd-yyyy">
+		<!--            {{form.end_date}}-->
+			<input class="form-control" type="text" name="enddate" value="{{project_instance.end_date}}"/>
+			<span class="input-group-addon"><i class="glyphicon fas fa-calendar-plus"></i></span>
+			</div>
+				</div>
+				</div>
+				</div>
+
+
+				<div class="col-md-6">
+				<div class="form-project">
+				<div class="form-group">
+				<label>Estimated Hours</label>
+					{{form.estimate_hours}}
+<!--			 <input class="form-control" type="text" placeholder="HH:MM" />-->
+				</div>
+				</div>
+				</div>
+
+
+				<div class="col-md-12">
+				<button class="btn text-uppercase btn-success btn-rounded" type="submit">Save</button>
+				</div>
+
+
+				</div>
+			</form>
+
+
+
+<script type="text/javascript">
+	 $('textarea#summernote').summernote({
+                        placeholder: 'Hello bootstrap 4',
+                        tabsize: 2,
+                        height: 100,
+                        toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'italic', 'underline', 'clear']],
+                        // ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+                        //['fontname', ['fontname']],
+                        // ['fontsize', ['fontsize']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['height', ['height']],
+                        ['table', ['table']],
+                        ['insert', ['link', 'picture', 'hr']],
+                        //['view', ['fullscreen', 'codeview']],
+                        ['help', ['help']]
+                        ],
+                        });
+</script>
+<script>
+                         $(function () {
+                        $("#datepicker, #enddate").datepicker({
+                        autoclose: true,
+                        todayHighlight: true,
+                        // startDate: "-7d",
+                        // endDate: "2d"
+
+                        }).datepicker('update', new Date());
+                        });
+
+                        $(document).ready(function() {
+                        $('#multiple-checkboxes12').multiselect({
+                        includeSelectAllOption: true,
+                        selectAllText: ' Select User',
+                        nonSelectedText: 'Select User',
+                        });
+
+                        $('#multiple-checkboxes123').multiselect({
+                        includeSelectAllOption: true,
+                        selectAllText: ' Select User',
+                        nonSelectedText: 'Select User',
+                        });
+
+                        });
+</script>
